@@ -1,0 +1,34 @@
+services:
+  backend:
+    build: ./server
+    ports:
+      - "8000:8000"
+    environment:
+      DB_PATH: /srv/data/trips.db
+      SEED_PATH: /srv/seed.json
+      APP_TZ: Asia/Almaty
+    volumes:
+      - trips-data:/srv/data
+      - ./data/seed.json:/srv/seed.json:ro
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://localhost:8000/openapi.json')"
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  frontend:
+    build: ./client
+    ports:
+      - "8080:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  trips-data:

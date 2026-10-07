@@ -1,0 +1,264 @@
+:root {
+  font-family: Inter, Arial, sans-serif;
+  color: #192c36;
+  background: #f3f5f4;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  max-width: 1160px;
+  margin: auto;
+  padding: 30px 28px 40px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  border-bottom: 1px solid #d9e1de;
+  padding-bottom: 24px;
+}
+.brand {
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+}
+.badge,
+.pill {
+  background: #e6ece8;
+  border-radius: 30px;
+  padding: 7px 12px;
+  font-size: 12px;
+}
+.intro {
+  padding: 36px 0 24px;
+}
+.eyebrow {
+  color: #477769;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+h1 {
+  font-size: 48px;
+  letter-spacing: -2px;
+  margin: 10px 0;
+}
+.sub {
+  color: #6b7976;
+  margin: 0;
+}
+.daybar {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.daybar label {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 14px;
+}
+button,
+input,
+select {
+  font: inherit;
+  border: 1px solid #cfdad4;
+  border-radius: 9px;
+  padding: 11px 13px;
+  background: white;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:hover {
+  border-color: #347560;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+input:focus,
+button:focus,
+select:focus {
+  outline: 2px solid #5da18c;
+  outline-offset: 2px;
+}
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.metric {
+  border: 1px solid #e1e7e3;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.metric span {
+  font-size: 14px;
+  color: #657773;
+}
+.metric strong {
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+.accent {
+  background: #154d3d;
+  color: #fff;
+  border-color: #154d3d;
+}
+.accent span {
+  color: #bddecf;
+}
+.payments {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 18px 0 26px;
+}
+.payments article {
+  background: #e9eeea;
+  padding: 20px 24px;
+  border-radius: 13px;
+}
+.payments h2 {
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+.payments strong {
+  font-size: 23px;
+}
+.payments p {
+  font-size: 13px;
+  color: #5b7068;
+  margin-bottom: 0;
+}
+.panel {
+  border: 1px solid #e0e6e2;
+  background: #fff;
+  border-radius: 15px;
+  margin-bottom: 18px;
+  padding: 23px;
+}
+.panel-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.panel-title h2 {
+  font-size: 20px;
+  margin: 0 0 18px;
+}
+.panel-title span {
+  font-size: 12px;
+  color: #687c73;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  white-space: nowrap;
+}
+th {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: #798a83;
+  font-weight: 500;
+  padding: 12px;
+}
+td {
+  padding: 20px 12px;
+  border-top: 1px solid #edf0ee;
+  font-size: 14px;
+}
+.net {
+  font-weight: 700;
+  color: #256149;
+}
+.empty {
+  padding: 26px 0;
+  color: #697d73;
+}
+summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+}
+form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+}
+.primary {
+  background: #154d3d;
+  color: white;
+}
+form p {
+  grid-column: 1/-1;
+  margin: 0;
+}
+footer {
+  font-size: 12px;
+  color: #75867e;
+  padding: 8px 0;
+}
+.error {
+  background: #ffece6;
+  padding: 16px;
+  border-radius: 12px;
+  margin: 15px 0;
+}
+@media (max-width: 750px) {
+  main {
+    padding: 20px 16px;
+  }
+  h1 {
+    font-size: 38px;
+  }
+  .metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+  .metric {
+    padding: 18px;
+  }
+  .metric strong {
+    font-size: 25px;
+  }
+  .payments {
+    grid-template-columns: 1fr;
+  }
+  form {
+    grid-template-columns: 1fr;
+  }
+  header {
+    align-items: start;
+    flex-direction: column;
+  }
+  .daybar label {
+    gap: 8px;
+  }
+  .panel {
+    padding: 16px;
+  }
+}

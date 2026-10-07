@@ -1,0 +1,19 @@
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+# data
+*.db
+*.db-wal
+*.db-shm
+# node
+node_modules/
+client/dist/
+client/coverage/
+# misc
+.env
+.DS_Store
