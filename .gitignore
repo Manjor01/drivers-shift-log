@@ -17,3 +17,6 @@ client/coverage/
 # misc
 .env
 .DS_Store
+
+# local build logs
+*.log

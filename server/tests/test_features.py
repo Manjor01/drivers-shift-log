@@ -185,3 +185,16 @@ def test_assignment_seed_contract(tmp_path):
         assert data["summary"]["card"]["net"] == 2040
         assert [t["id"] for t in data["trips"]] == ["t1", "t2"]
         assert data["trips"][0]["start"] == "2026-10-01T08:10:00+05:00"
+
+
+def test_api_rejects_dates_that_can_overflow_utc_boundaries(tmp_path):
+    with TestClient(
+        create_app(db_path=tmp_path / "date-range.db", seed_path=None),
+        raise_server_exceptions=False,
+    ) as client:
+        for day in ("0001-01-01", "0001-12-31", "9999-01-01", "9999-12-31"):
+            response = client.get("/api/day", params={"day": day})
+            assert response.status_code == 422
+            assert response.json()["detail"][0]["loc"] == ["query", "day"]
+        for day in ("0002-01-01", "2026-10-01", "9998-12-31"):
+            assert client.get("/api/day", params={"day": day}).status_code == 200

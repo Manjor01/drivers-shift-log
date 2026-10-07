@@ -70,7 +70,16 @@ def create_app(
     application = FastAPI(title="Driver Shift Diary", lifespan=lifespan)
 
     @application.get("/api/day", response_model=DayOutput)
-    def get_day(day: Annotated[date, Query()]) -> DayOutput:
+    def get_day(
+        day: Annotated[
+            date,
+            Query(
+                ge=date(2, 1, 1),
+                le=date(9998, 12, 31),
+                description="Local day between 0002-01-01 and 9998-12-31",
+            ),
+        ],
+    ) -> DayOutput:
         trips = repo.for_day(day, tz)
         return DayOutput(
             day=day,

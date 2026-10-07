@@ -35,3 +35,7 @@ These corrections were made collaboratively with AI and automated tools. They sh
 
 - The timezone configuration test exposed `IsADirectoryError` for `APP_TZ=America` when tzdata falls back to package resources. That exception is now converted to the same clear ValueError as other invalid zone names.
 - During temporary mutation checks, same-size changes restored within one second left a stale Python bytecode cache. The checks were rerun with bytecode caches cleared and bytecode writing disabled, and each failure was checked for the intended assertion. The restored source then passed the full suite.
+
+## Post-publication review correction
+
+Codex reproduced HTTP 500 for day queries 0001-01-01 and 9999-12-31. The earlier tests covered typical days but missed datetime representational limits. An explicit supported date range was added to the query schema, documented, and tested for HTTP 422 on excluded dates and HTTP 200 at supported boundaries.

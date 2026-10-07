@@ -52,3 +52,5 @@
 | 32 | Writable SQLite Docker volume owned by app UID | Data survives container replacement; server runs as non-root |
 
 The amount cap is a sanity bound on each trip. Python summary integers do not overflow at 64 bits, and the current SQLite schema does not store money in INTEGER columns. Do not describe the cap as complete protection from aggregate overflow.
+
+| 33 | API day range 0002-01-01 through 9998-12-31, inclusive | Technical datetime bounds leave room for timezone conversion and next-day arithmetic; unsupported dates return 422 rather than 500 |
